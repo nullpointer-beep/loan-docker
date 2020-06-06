@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://9qukcxktlo4tvrxe.g.89dk.cn/MTg4 -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no, address=no, email=no">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <link rel="stylesheet" href="./files/wd.css">
+    <title>小贷</title>
+    <meta name="keywords" content="小贷">
+    <meta name="description" content="小贷">
+    <script src="./files/clipboard.min.js"></script>
+
+</head>
+
+<body>
+    <a href="#" id="installm"></a>
+    <!-- itms-services://?action=download-manifest&url=https://{APP域名}/app/app.plist -->
+    <script type="text/javascript">
+        var isAndroid, isiOS, isSafar;
+        var u = navigator.userAgent;
+        isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+        isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        isSafar = u.toLowerCase().indexOf('safari') > -1;
+        var androidUrl = './test_v_1.0.0.apk'
+        var port = location.port;
+        var domain = location.protocol + "//" + location.hostname + (port.length > 0 ? ":" + port : "");
+        var iosUrl = 'itms-services://?action=download-manifest&url=' + domain + '/app.plist'
+        document.getElementById("installm").setAttribute("href", iosUrl);
+
+        function install_app() {
+            document.getElementById('actions').innerHTML = '<div class="btn"> 软件安装中...</div>';
+            //setTimeout('mobile_provision()', 600);
+            if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
+                setTimeout(function() {
+                    mobile_provision()
+                }, 2000);
+            }
+            setTimeout(function() {
+                document.getElementById('actions').innerHTML = '<button class="btn" onclick="install_app()">下载安装</button>';
+            }, 60000);
+            location.href = /iphone|ipad|ipod/i.test(navigator.userAgent) ? iosUrl : androidUrl;
+        }
+
+        function mobile_provision() {
+            document.getElementById('actions').innerHTML = '<button class="btn" onclick="location.href=\'./embedded.mobileprovision\'">请再次点击我去信任并安装</button>';
+        }
+
+        function install_opp() {
+            var install = document.getElementById('install');
+            install.click();
+        }
+
+        function install_oppm() {
+            var install = document.getElementById('installm');
+            install.click();
+        }
+    </script>
+    <section id="tips" class="height-100">
+        <img class="bg-img" src="./files/ydaz.png">
+        <article class="content-box">
+            <img class="bg-img ios-img" src="./files/ydpg.jpg">
+        </article>
+    </section>
+    <div>
+         <img src="./files/yzmtop.png" alt="">
+    </div>
+    <div class="wp">
+        <div class="main">
+           
+            <div class="top">
+                <div class="logobox">
+                    <img src="./files/logo.png">
+                </div>
+                <h1>小贷</h1>
+            </div>
+            <div class="btnbox">
+                <p id="filesize"></p>
+                <div id="actions">
+                    <button class="btn" onclick="install_app()">下载安装</button>
+                </div>
+
+                <!-- <button class="btn" onclick="location.href='./embedded.mobileprovision'" id="setting">请再次点击我去信任并安装</button> -->
+                <div id="ios-tip">
+                    <div class="copy-box"></div>
+                    <input type="button" class="copy" value="App永久推广下载地址一键复制" data-clipboard-target=".copy-box">
+                </div>
+                <div id="ios-help" style="display: none;">
+                    <div class="msgbox">
+                        <p id="txtinfo">苹果手机如何安装?</p>
+                    </div>
+
+                    <p class="homebox">第一步：弹出配置下载文件时，点击"允许"</p>
+                    <p>
+                        <img src="./files/yindao1.png">
+                        <br>
+                    </p>
+
+                    <p class="homebox">第二步：打开设置→通用→描述文件(或 点击 “请再次点击我去信任并安装” 按钮直接跳转到描述文件)</p>
+                    <p>
+                        <img src="./files/yindao2.png">
+                        <br>
+                    </p>
+
+                    <p class="homebox">第三步：找到右上角的"安装"</p>
+                    <p>
+                        <img src="./files/yindao3.png">
+                    </p>
+                </div>
+            </div>
+            <!-- <img id="qrcode" src="./files/qrcode.php">
+            <p style="font-size:18px">手机扫描二维码安装</p> -->
+
+        </div>
+    </div>
+
+    <script>
+        var isAndroid, isiOS, isSafar;
+        window.onload = function() {
+            var u = navigator.userAgent;
+            isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+            isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+            isSafar = u.toLowerCase().indexOf('safari') > -1;
+
+            document.querySelector('.copy-box').innerHTML = location.href
+            document.getElementById("filesize").innerHTML = isiOS ? '大小：34.1 KB' : '大小：4.6 M'
+
+            if (isWeiXin() || isQQ()) {
+                document.getElementById("tips").style.display = 'block';
+                document.querySelector('.wp').style.display = 'none';
+
+                if (isiOS) {
+                    document.querySelector('.ios-img').style.display = 'block';
+                    document.querySelector('.and-img').style.display = 'none';
+                } else if (isAndroid) {
+                    document.querySelector('.ios-img').style.display = 'none';
+                    document.querySelector('.and-img').style.display = 'block';
+                }
+            }
+
+            function isWeiXin() {
+                var ua = window.navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                    return true;
+                }
+                return false;
+            }
+
+            function isQQ() {
+                var ua = window.navigator.userAgent.toLowerCase();
+                if (ua.match(/QQ\//i) == "qq/") {
+                    return true;
+                }
+                return false;
+            }
+
+            //  document.querySelector(".copy-box").innerHTML = location.href;
+            if (isiOS) {
+                if (isSafar) {
+                    //document.getElementById("ios-tip").style.display = "none";
+                    document.getElementById("ios-help").style.display = "block";
+                } else {
+                    document.getElementById("install").style.display = "none";
+                    document.getElementById("ios-tip").style.display = "block";
+                    document.getElementById("ios-help").style.display = "none";
+                }
+            }
+        };
+
+
+        //自动选中
+        var key = document.querySelector('.copy-box');
+        document.addEventListener("selectionchange",
+            function(e) {
+                window.getSelection().selectAllChildren(key);
+            },
+            false);
+
+        var clipboard = new Clipboard(".copy");
+        clipboard.on('success', function(e) {
+            if (!e.trigger.className.match(/success/)) {
+                e.trigger.className += " success";
+            }
+            if (isiOS) {
+                e.trigger.value = "复制成功，打开Safar苹果浏览器";
+            } else {
+                e.trigger.value = "复制成功，打开默认系统浏览器";
+            }
+
+        });
+        clipboard.on('error', function(e) {
+            if (!e.trigger.className.match(/fail/)) {
+                e.trigger.className += " fail";
+            }
+            e.trigger.value = "复制失败，请长按框内手工复制";
+        });
+    </script>
+
+</body>
+
+</html>
