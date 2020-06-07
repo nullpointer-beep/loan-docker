@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Implementation-Title: cskefu
+Implementation-Version: 5.1.0
+Archiver-Version: Plexus Archiver
+Built-By: pia
+Implementation-Vendor-Id: com.chatopera.cc
+Spring-Boot-Version: 1.5.10.RELEASE
+Implementation-Vendor: Pivotal Software, Inc.
+Main-Class: org.springframework.boot.loader.JarLauncher
+Start-Class: com.chatopera.cc.Application
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Created-By: Apache Maven 3.6.3
+Build-Jdk: 1.8.0_251
+Implementation-URL: http://projects.spring.io/spring-boot/contact-cent
+ er/
+

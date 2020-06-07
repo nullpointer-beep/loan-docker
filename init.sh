@@ -11,6 +11,9 @@ registryName=dockerhub.qingcloud.com
 imagename=chatopera/contact-center
 TIMESTAMP=`date "+%Y%m%d.%H%M%S"`
 
+# 打包cc.jar
+tar czvf softwares/contact_center/cc.jar softwares/contact_center/cc
+
 # functions
 
 # main 
